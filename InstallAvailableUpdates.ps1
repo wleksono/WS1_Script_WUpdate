@@ -11,7 +11,7 @@ if($testnet.TcpTestSucceeded -eq "True"){}Else{exit 44}
 $Session = [activator]::CreateInstance([type]::GetTypeFromProgID("Microsoft.Update.Session"))#,$Computer))
 $UpdateSearcher = $Session.CreateUpdateSearcher()
 
-$Criteria = "IsHidden=0 and IsInstalled=0"
+$Criteria = "IsHidden=0 and IsInstalled=0 and IsAssigned=1"
 $SearchResult = $UpdateSearcher.Search($Criteria).Updates
 
 if($SearchResult.count -ne 0){
